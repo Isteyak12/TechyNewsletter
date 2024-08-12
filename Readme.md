@@ -14,6 +14,10 @@ client: server.js --> index.html->>{===}->> client.html --> data.json(saving ema
 so everytime after writing the email address in the input field, it will be saved to json when btn clicked
 
 
-<><>About Hackforge<><Contact>
+client.html
+<Events><>About><Contact>
 <h1>Sign Up for the Weekly Newsletter</h1>
 <input>
+
+
+//sign in and input info stored in mongodb, different for client and admin
