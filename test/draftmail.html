@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +13,10 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background: blueviolet; /* Off-white gradient background */
+            background: blueviolet;
+            /* Off-white gradient background */
         }
+
         .container {
             background-color: white;
             padding: 30px;
@@ -22,16 +25,19 @@
             width: 100%;
             max-width: 400px;
         }
+
         h2 {
             margin: 0 0 20px;
             text-align: center;
             color: #333;
         }
+
         label {
             display: block;
             margin: 15px 0 5px;
             color: #555;
         }
+
         input {
             width: 100%;
             padding: 10px;
@@ -40,6 +46,7 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
+
         button {
             width: 100%;
             padding: 10px;
@@ -50,12 +57,15 @@
             cursor: pointer;
             font-size: 16px;
         }
+
         button:hover {
             background-color: #ff3f31;
         }
+
         .form-group {
             margin-bottom: 15px;
         }
+
         .alert {
             color: red;
             text-align: center;
@@ -63,6 +73,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>Sign In</h2>
@@ -81,7 +92,7 @@
     </div>
 
     <script>
-        document.getElementById('signinForm').addEventListener('submit', function(event) {
+        document.getElementById('signinForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
             const email = document.getElementById('email').value;
@@ -94,20 +105,24 @@
                 },
                 body: JSON.stringify({ email, password })
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    window.location.href = '/admin.html';
-                } else {
-                    const alert = document.getElementById('alert');
-                    alert.style.display = 'block';
-                    alert.textContent = 'Sign in failed: ' + data.message;
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        //window.location.href = '/admin.html'; triggers a navigation in the browser 
+                        //to the /admin.html endpoint. This means the browser will send a GET 
+                        //request to the server for the /admin.html route.
+                        window.location.href = '/admin.html';
+                    } else {
+                        const alert = document.getElementById('alert');
+                        alert.style.display = 'block';
+                        alert.textContent = 'Sign in failed: ' + data.message;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         });
     </script>
 </body>
+
 </html>

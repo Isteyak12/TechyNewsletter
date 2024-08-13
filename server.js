@@ -36,7 +36,6 @@ app.post("/signin", (req, res) => {
 
   if (email === process.env.EMAIL_USER && password === process.env.EMAIL_PASS) {
     req.session.isAuthenticated = true;
-    req.session.fromSignin = true;
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
@@ -63,7 +62,7 @@ app.post("/signin", (req, res) => {
   }
 });
 
-// Middleware to check authentication and handle redirects
+// Middleware to check authentication
 function checkAuthentication(req, res, next) {
   if (req.session.isAuthenticated) {
     next();
@@ -72,27 +71,8 @@ function checkAuthentication(req, res, next) {
   }
 }
 
-function checkRedirectFromSignin(req, res, next) {
-  if (req.session.fromSignin) {
-    req.session.fromSignin = false;
-    req.session.refreshCheck = true;
-    next();
-  } else {
-    res.redirect("/auth/sign.html");
-  }
-}
-
-function handlePageRefresh(req, res, next) {
-  if (req.session.refreshCheck) {
-    req.session.refreshCheck = false;
-    next();
-  } else {
-    res.redirect("/auth/sign.html");
-  }
-}
-
 // Serve admin.html with authentication checks
-app.get("/admin.html", checkAuthentication, checkRedirectFromSignin, handlePageRefresh, (req, res) => {
+app.get("/admin.html", checkAuthentication, (req, res) => {
   res.sendFile(path.join(__dirname, "admin.html"));
 });
 

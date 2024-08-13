@@ -1,19 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="favicon" href="icon/favicon.ico">
     <title>TechN</title>
+    <link rel="icon" href="image.jpg" type="image/jpeg">
+    <style>
+        /* Add your CSS styles here */
+    </style>
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    <!-- Floating Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <!-- End of Floating Navbar -->
 
-    <script src="" async defer></script>
+    <section id="about">
+        <h1>About Us</h1>
+        <p>Information about the company or website goes here.</p>
+    </section>
+
+    <section id="buttons">
+        <button onclick="window.location.href='events.html'">Events</button>
+        <button id="execute-app" onclick="executeApp()">Admin</button>
+    </section>
+
+    <section id="contact">
+        <h1>Contact Us</h1>
+        <p>999</p>
+    </section>
+
+    <script>
+        function executeApp() {
+            fetch("/execute-app")
+              .then((response) => {
+                if (response.ok) {
+                  window.location.href = "/auth/sign.html";
+                } else {
+                  alert("Execution failed: " + response.statusText);
+                }
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+              });
+        }
+    </script>
 </body>
 
 </html>
