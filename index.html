@@ -2,56 +2,258 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechN</title>
-    <link rel="icon" href="image.jpg" type="image/jpeg">
-    <style>
-        /* Add your CSS styles here */
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechN</title>
+  <link rel="icon" href="image.jpg" type="image/jpeg">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      /* Very dark gray background */
+      color: #e0e0e0;
+      /* Light gray text color */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    h1,
+    p {
+      margin: 0;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      width: 100%;
+      height: 60px;
+      /* Fixed height for navbar */
+      background-color: #1c1c1c;
+      /* Black background */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* Center align the items vertically */
+      position: fixed;
+      /* Fix navbar at the top */
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      /* Ensure navbar stays on top */
+      overflow-x: auto;
+      /* Enable horizontal scrolling if needed */
+    }
+
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+      white-space: nowrap;
+      /* Prevent items from wrapping */
+    }
+
+    .navbar a {
+      color: #81d4fa;
+      /* Light blue text color */
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #03a9f4;
+      /* Brighter blue on hover */
+    }
+
+    /* Section Styles */
+    section {
+      max-width: 800px;
+      width: 90%;
+      padding: 40px 20px;
+      margin: 20px auto;
+      /* Set consistent margin for all sections */
+      background-color: #1e1e1e;
+      /* Dark gray background */
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    section h1 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #81d4fa;
+      /* Light blue for section headers */
+      text-align: center;
+    }
+
+    section p {
+      text-align: center;
+      color: #b0bec5;
+      /* Medium gray for paragraph text */
+      font-size: 16px;
+    }
+
+    /* Buttons Section */
+    #buttons-section {
+      margin-top: 100px;
+      /* Add margin to ensure the section is below the navbar */
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    button {
+      padding: 12px 24px;
+      background-color: #03a9f4;
+      /* Bright blue background for buttons */
+      color: #fff;
+      /* White text color */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0288d1;
+      /* Darker blue on hover */
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .navbar ul {
+        gap: 15px;
+        /* Reduce gap between items on smaller screens */
+      }
+
+      .navbar a {
+        font-size: 14px;
+        /* Smaller font size on smaller screens */
+      }
+
+      section {
+        padding: 30px 15px;
+        /* Adjust section padding */
+      }
+
+      section h1 {
+        font-size: 20px;
+        /* Smaller header font size */
+      }
+
+      section p {
+        font-size: 14px;
+        /* Smaller paragraph font size */
+      }
+
+      #buttons-section {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+      }
+
+      button {
+        width: 100%;
+        text-align: center;
+        padding: 10px 20px;
+        /* Adjust button padding */
+        font-size: 14px;
+        /* Smaller button font size */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar ul {
+        gap: 10px;
+        /* Further reduce gap between items on very small screens */
+      }
+
+      .navbar a {
+        font-size: 12px;
+        /* Even smaller font size on very small screens */
+      }
+
+      section {
+        padding: 20px 10px;
+        /* Further reduce section padding */
+      }
+
+      section h1 {
+        font-size: 18px;
+        /* Smaller header font size */
+      }
+
+      section p {
+        font-size: 12px;
+        /* Smaller paragraph font size */
+      }
+
+      button {
+        padding: 8px 16px;
+        /* Further adjust button padding */
+        font-size: 12px;
+        /* Smaller button font size */
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Floating Navbar -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="events.html">Events</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <!-- End of Floating Navbar -->
+  <!-- Floating Navbar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <!-- End of Floating Navbar -->
 
-    <section id="about">
-        <h1>About Us</h1>
-        <p>Information about the company or website goes here.</p>
-    </section>
+  <!-- Buttons Section -->
+  <div id="buttons-section">
+    <button onclick="window.location.href='events.html'">Events</button>
+    <button id="execute-app" onclick="executeApp()">Admin</button>
+  </div>
 
-    <section id="buttons">
-        <button onclick="window.location.href='events.html'">Events</button>
-        <button id="execute-app" onclick="executeApp()">Admin</button>
-    </section>
+  <!-- About Us Section -->
+  <section id="about">
+    <h1>About Us</h1>
+    <p>Information about the company or website goes here.</p>
+  </section>
 
-    <section id="contact">
-        <h1>Contact Us</h1>
-        <p>999</p>
-    </section>
+  <!-- Contact Section -->
+  <section id="contact">
+    <h1>Contact Us</h1>
+    <p>test@gmail.com</p>
+    <p>999-999-9999</p>
+  </section>
 
-    <script>
-        function executeApp() {
-            fetch("/execute-app")
-              .then((response) => {
-                if (response.ok) {
-                  window.location.href = "/auth/sign.html";
-                } else {
-                  alert("Execution failed: " + response.statusText);
-                }
-              })
-              .catch((error) => {
-                console.error("Error:", error);
-              });
-        }
-    </script>
+  <script>
+    function executeApp() {
+      fetch("/execute-app")
+        .then((response) => {
+          if (response.ok) {
+            window.location.href = response.url; // Redirect based on the server's response
+          } else {
+            alert("Execution failed: " + response.statusText);
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
+  </script>
 </body>
 
 </html>

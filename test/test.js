@@ -229,7 +229,7 @@
                 <details open>
                     <summary><strong><h2>Event 1: Company Workshop</h2></strong></summary>
                     <div class="event-content">
-                        <img src="https://static.hbo.com/2024-07/silicon-valley-10th-anniversary-ka-1920.jpg" alt="Workshop Image" class="event-image" type="image/png">
+                        <img src="image.jpg" alt="Workshop Image" class="event-image">
                         <h1>Join us for an in-depth workshop on the latest industry trends.</h1>
                     </div>
                 </details>
@@ -238,7 +238,7 @@
                 <details open>
                     <summary><strong><h2>Event 2: Product Launch</h2></strong></summary>
                     <div class="event-content">
-                        <img src="image.jpg" alt="Product Launch Image" class="event-image">
+                        <img src="product-launch.jpg" alt="Product Launch Image" class="event-image">
                         <p>Be the first to experience our new product at the official launch event.</p>
                     </div>
                 </details>

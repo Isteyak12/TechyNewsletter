@@ -1,26 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="test.css">
-
-</head>
-
-<body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
     <style>
-        .input_img {
-            width: 100%;
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column; /* Stack containers vertically */
             height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px; /* Add some space between the containers */
+        }
+
+        .container2 {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333;
+            margin: 0;
+            padding-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        a:hover {
+            color: #00796b; /* Change color on hover */
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #00796b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #005f56;
         }
     </style>
-    <h1>What's UP!</h1>
-    <script src=""></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to the Admin Page!</h1>
+        <p>You are successfully authenticated.</p>
+    </div>
+
+    <div class="container2">
+        <a href="events.html"><h1>Events to look @</h1></a>
+        <button onclick="sendEmail()">Send Events via Email</button>
+    </div>
+
+    <script>
+        function sendEmail() {
+            fetch('/send-events-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Emails sent successfully!');
+                } else {
+                    alert('Failed to send emails: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while sending the emails.');
+            });
+        }
+    </script>
 </body>
+
 </html>

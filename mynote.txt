@@ -1,0 +1,7 @@
+This line tells Express to serve static files from the root directory
+
+i want to have a website with a simple url check bar to check if the url is safe to access
+
+hosting image online/google drive: Imgur
+inline image 
+ico website: emoji converter

@@ -100,19 +100,19 @@
                 },
                 body: JSON.stringify({ email, password })
             })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        window.location.href = '/admin.html';
-                    } else {
-                        const alert = document.getElementById('alert');
-                        alert.style.display = 'block';
-                        alert.textContent = 'Sign in failed: ' + data.message;
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = '/admin.html';
+                } else {
+                    const alert = document.getElementById('alert');
+                    alert.style.display = 'block';
+                    alert.textContent = 'Sign in failed: ' + data.message;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         });
     </script>
 </body>
